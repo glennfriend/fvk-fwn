@@ -5,8 +5,7 @@
 {{height, map/map2.jpg, 400}}
 <br />
 
-<div class="show_code">
-<pre>
+<pre class="show_code">
     帛琉共和國 Republic of Palau (帛琉語：Beluu er a Belau)
     
     面積：     196 平方英哩 (500平方公里)
@@ -83,4 +82,3 @@
         順著阿勇的方式玩, 你會玩的很開心
 
 </pre>
-</div>

@@ -3,22 +3,57 @@
 <head>
 <title><?php echo Config::get('title'); ?></title>
 
-    <!-- theme -->
-    <link rel="stylesheet" type="text/css" href="../dist/styles/default/style.css">
-    <script type="text/javascript" src='../dist/overlib421/me.js'></script>
+
+    <script type="text/javascript" src="../dist/jquery/jquery-1.11.1.js"></script>
 
     <!-- images slide information -->
-    <script type="text/javascript" src="../dist/jquery/jquery-1.11.1.js"></script>
     <link rel="stylesheet" type="text/css" href="../dist/styles/image_captions/style.css">
+
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" type="text/css" href="../dist/bootstrap-3.2.0-dist/css/bootstrap.min.css">
+
+    <!-- theme -->
+    <link rel="stylesheet" type="text/css" href="../dist/styles/default/style.css">
+
+    <!-- qtip -->
+    <link rel="stylesheet" type="text/css" href="../dist/jquery/qtip/jquery.qtip.css">
+    <script type="text/javascript" src='../dist/jquery/qtip/jquery.qtip.min.js'></script>
 
     <!-- images shadowbox -->
     <link rel="stylesheet" type="text/css" href="../dist/shadowbox/shadowbox.css">
     <script type="text/javascript" src='../dist/shadowbox/shadowbox.js'></script>
     <script type="text/javascript">
-    Shadowbox.init({
-        language: 'zh-TW',
-        players:  ['img']
-    });
+    </script>
+
+    <script type="text/javascript">
+        "use strict";
+
+        $(function() {
+            Shadowbox.init({
+                language: 'zh-TW',
+                players:  ['img']
+            });
+        });
+
+        $(function() {
+            $('.description_content_right').each(function() {
+                $(this).qtip({
+                    content: $(this).next('.exif'),
+                    position: {
+                        at: 'right bottom',
+                        my: 'left bottom',
+                        adjust: {
+                            method: 'shift none'
+                        }
+                    },
+                    style: {
+                        classes: 'qtip-light'
+                    }
+
+                });
+            });
+        });
+
     </script>
 
 </head>

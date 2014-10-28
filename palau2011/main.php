@@ -32,26 +32,6 @@
 //--------------------------------------------------------------------------------
 // template
 //--------------------------------------------------------------------------------
-    function TemplateBreadcrumb()
-    {
-        $request = new Request();
-        $key = $request->getQuery('key');
-
-        $output = '';
-        foreach( Config::getMenus() as $keyword => $items ) {
-            if( $key == $keyword ) {
-                $tag = ' class="focus" ';
-            }
-            else {
-                $tag = '';
-            }
-
-            $output .= '<li><a href="'. getUrl($keyword) .'" '. $tag .' >'. $items['topic'] .'</a></li>';
-        }
-
-        return '<ul class="breadcrumb">'.$output.'</ul><br />';
-    }
-
 
     function templateOrigin( $fromUri, $exif )
     {
@@ -89,12 +69,6 @@ EOD;
 
     function templateHeight( $from, $to, $fromUri, $toUri, $height, $exif )
     {
-        $exifView = '';
-        if ( $exif ) {
-            $exifView = "<a href='javascript:void(0)' onmouseover=\"overlib('{$exif}',WIDTH,420);\" onmouseout='return nd();'>EXIF</a>";
-            $exifView = str_replace("\n", '', $exifView);
-            $exifView = str_replace("\r", '', $exifView);
-        }
 
         //如果原圖、縮圖都存在, 表示會先顯示縮圖, 因此, 在點擊之後, 顯示大圖
         $showOriginImage = '';
@@ -103,14 +77,17 @@ EOD;
         }
 
         $content = '';
-        if( $showOriginImage || $exifView ) {
+        if( $showOriginImage || $exif ) {
             $content = <<<EOD
                 <div class="description_content">
                     <span class="description_content_left">
                         {$showOriginImage}
                     </span>
                     <span class="description_content_right">
-                        {$exifView}
+                        <a href="javascript:'">EXIF</a>
+                    </span>
+                    <span style="display:none;" class="exif">
+                        {$exif}
                     </span>
                 </div>
 EOD;
@@ -148,7 +125,7 @@ EOD;
             $exif = exif_read_data($image);
         ob_end_clean();
 
-        if (isset($exif['Make'])) {
+        if (isset($exif['Model'])) {
 
             //echo '<pre>';  print_r($exif); echo '</pre>'; //debug
 
@@ -161,16 +138,34 @@ EOD;
 
             return <<<EOD
     <table border=0 cellpadding=0 cellspacing=0 >
-        <tr><td>ISO      : </td><td>{$iso}      </td></tr>
-        <tr><td>fnumber  : </td><td>{$fnumber}  </td></tr>
-        <tr><td>exposure : </td><td>{$exposure} </td></tr>
-        <tr><td>make     : </td><td>{$make}     </td></tr>
-        <tr><td>model    : </td><td>{$model}    </td></tr>
-        <tr><td>DateTime : </td><td>{$datetime} </td></tr>
+        <tr><td>ISO     : </td><td>{$iso}                   </td></tr>
+        <tr><td>F/A     : </td><td>{$fnumber} {$exposure}   </td></tr>
+        <tr><td>Model   : </td><td>{$model}                 </td></tr>
+        <tr><td>Time    : </td><td>{$datetime}              </td></tr>
     </table>
 EOD;
         }
 
+    }
+
+    function TemplateBreadcrumb()
+    {
+        $request = new Request();
+        $key = $request->getQuery('key');
+
+        $output = '';
+        foreach( Config::getMenus() as $keyword => $items ) {
+            if( $key == $keyword ) {
+                $tag = ' class="focus" ';
+            }
+            else {
+                $tag = '';
+            }
+
+            $output .= '<li><a href="'. getUrl($keyword) .'" '. $tag .' >'. $items['topic'] .'</a></li>';
+        }
+
+        return '<ul class="custom-breadcrumb">'.$output.'</ul><br />';
     }
 
 //

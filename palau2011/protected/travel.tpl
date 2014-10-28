@@ -1,7 +1,7 @@
 
-<div class="show_code"><pre>
+<pre class="show_code">
     12-11 (日) &raquo; 台灣 &raquo; 帛琉本島 Babeldaob &raquo; 月伴灣住宿 &raquo; 晚餐
-</pre></div>
+</pre>
 
 <p>
     
@@ -28,9 +28,9 @@
 
 
 
-<div class="show_code"><pre>
+<pre class="show_code">
     12-12 (一) &raquo; 早餐 &raquo; 租借裝備 &raquo; 開船抓沙丁魚 &raquo; 牛奶湖 &raquo; 釣魚 &raquo; Ncchelobel island 午餐 &raquo; 練習浮潛 &raquo; 水母湖 &raquo; 晚餐
-</pre></div>
+</pre>
 
 <p>
     吃完飯店早餐，八點多我們就來到了阿勇的店租借裝備<br />
@@ -43,11 +43,9 @@
     {{height, day2/IMG_1358.JPG}}
     {{height, day2/IMG_1373.JPG}}
 </p>
-<div class="show_code">
-<pre>
+<pre class="show_code">
     <a href="{{url,travel}}" target="_blank">牛奶湖</a>
 </pre>
-</div>
 <p>
     接下來就是人生第一次釣到魚的美好經驗，我一下子就釣到一條大魚 (沒圖沒真像，但是真像只有一個，就是我有釣到 XD )<br />
     {{height, day2/IMG_1360.JPG}}
@@ -75,11 +73,9 @@
     除霧葉
     {{height, island, fog_leafage.jpg}}
 </p>
-<div class="show_code">
-<pre>
+<pre class="show_code">
     <a href="{{url,jellyfish}}" target="_blank">水母湖</a>
 </pre>
-</div>
 <p>
     回程的時候遇上大風雨，超冷的，記得要做好保溫喔~
     {{height, day2/DSC03984.JPG}}
@@ -104,9 +100,9 @@
 
 
 
-<div class="show_code"><pre>
+<pre class="show_code">
     12-13 (二) &raquo; 餵魚看珊瑚 &raquo; 釣魚 &raquo; 中午吃飯 &raquo; 鯊魚城(水很濁,可能是退潮的時候) &raquo; 餵魚看珊瑚 &raquo; 晚餐 &raquo; 逛WCTC
-</pre></div>
+</pre>
 
 
 <p>
@@ -117,11 +113,9 @@
     {{height, day3/IMG_1463.JPG, 200}}
     {{height, day3/IMG_1468.JPG, 200}}
 </p>
-<div class="show_code">
-<pre>
+<pre class="show_code">
     <a href="{{url,coral}}" target="_blank">珊瑚區餵魚(上午+下午)</a>
 </pre>
-</div>
 <p>
     快中午了，我們繼續釣魚, no fish no lunch
     <?=$imh->simg( $config['images']['day3'], 'DSC04087.JPG' )?>
@@ -136,11 +130,9 @@
     {{height, day3/DSC04095, 200}}
     {{height, day3/DSC04096, 200}}
 </p>
-<div class="show_code">
-<pre>
+<pre class="show_code">
     <a href="{{url,coral}}" target="_blank">珊瑚區餵魚(上午+下午)</a>
 </pre>
-</div>
 <p>
     dinner, 帛琉當地的美式餐廳
     {{height, bryan/P1020777, 200}}
@@ -161,9 +153,9 @@
 </p>
 
 
-<div class="show_code"><pre>
+<pre class="show_code">
     12-14 (三) &raquo; 早餐 &raquo; 下大雨 &raquo; 開船抓沙丁魚 &raquo; 釣魚 &raquo; 長沙灘 &raquo; 大斷層(看到鯊魚) &raquo; 無人島過夜 &raquo; 晚上抓椰子蟹
-</pre></div>
+</pre>
 
 
 <p>
@@ -186,11 +178,9 @@
     {{height, day4/IMG_1683.JPG}}
     {{height, day4/IMG_1685.JPG}}
 </p>
-<div class="show_code">
-<pre>
+<pre class="show_code">
     <a href="{{url,double_dog}}" target="_blank">雙狗島</a>
 </pre>
-</div>
 <p>
     今天要夜宿無人島 (雙狗島)，我們先到島上放東西，中午開伙之前，阿勇在準備抓椰子蟹的工作
     {{height, day4/IMG_1692.JPG}}
@@ -219,11 +209,9 @@
     {{height, day4/DSC04247.JPG, 200}}
     {{height, day4/DSC04249.JPG, 200}}
 </p>
-<div class="show_code">
-<pre>
+<pre class="show_code">
     <a href="{{url,big_drop_off}}" target="_blank">大斷層</a>
 </pre>
-</div>
 <p>
     晚上吃火鍋
     {{height, day4/DSC01229.JPG}}
@@ -250,15 +238,13 @@
 
 
 
-<div class="show_code"><pre>
+<pre class="show_code">
     12-15 (四) &raquo; 早餐 &raquo; 大斷層(看到海龜) &raquo; 到帛琉大飯店洗澡 &raquo; KB大橋 &raquo; 機場
-</pre></div>
+</pre>
 
-<div class="show_code">
-<pre>
+<pre class="show_code">
     <a href="{{url,big_drop_off}}" target="_blank">大斷層</a>
 </pre>
-</div>
 <p>
     早上又去了大斷層，然後中午回到島上整理行李, 吃午餐, 然後準備去帛琉大飯店洗澡
     {{height, day5/IMG_1798.JPG}}
@@ -294,7 +280,7 @@
     {{height, day5/IMG_1935.JPG, 200}}
 </p>
 <p>
-<div class="show_code"><pre>
+<pre class="show_code">
     笑話分享：
 
     有一回
@@ -307,7 +293,7 @@
     日本議員：「那兒？根本就沒有橋啊？」 
     韓國議員：「該死, 又斷了....」
     各國議員：「....」
-</pre></div>
+</pre>
 </p>
 <p>
     漢堡車
@@ -328,7 +314,7 @@
 
 <p>
     我永遠也無法忘記這趟旅程，因為我在這裡感受到人們的熱情與大海的美麗<br />
-    如果有人問我在人生中有那個海島值得我們的人生去經歷，我不加思索的就以說出是『帛琉』<br />
+    如果有人問我在此生有那個海島值得去經歷，我不加思索的就以說出是『帛琉』<br />
     {{height, map/palau.jpg}}
 </p>
 <p>

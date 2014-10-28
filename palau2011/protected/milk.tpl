@@ -1,5 +1,4 @@
-<div class="show_code">
-<pre>
+<pre class="show_code">
 
     牛奶湖
 
@@ -8,8 +7,6 @@
     白的火山泥很像牛奶，所以才被稱為牛奶湖
 
 </pre>
-</div>
-
 <p>
     日本團<br />
     {{height, day2/IMG_1379.JPG, 400}}

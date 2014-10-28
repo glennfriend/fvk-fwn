@@ -48,7 +48,7 @@ p {
 /*  --------------------------------------------------------------------------------------  */
 /*  ----------   breadcrumb   ------------------------------------------------------------  */
 /*  --------------------------------------------------------------------------------------  */
-.breadcrumb {
+.custom-breadcrumb {
     font: 11px Arial, Helvetica, sans-serif;
     background-image:url('imgs/bc_bg.png');
     background-repeat:repeat-x;
@@ -61,16 +61,16 @@ p {
     margin:0px;
     padding:0px;
 }
-.breadcrumb li {
+.custom-breadcrumb li {
     list-style-type:none;
     float:left;
     padding-left:10px;
 }
-.breadcrumb li .focus{
+.custom-breadcrumb li .focus{
     color:#1122cc;
     font-weight:bold;
 }
-.breadcrumb a {
+.custom-breadcrumb a {
     height:30px;
     background-image:url('imgs/bc_separator.png');
     background-repeat:no-repeat;
@@ -80,13 +80,11 @@ p {
     color:#454545;
     /* display:block; */
     display:inline-table;
-    /* IE6 */
-    behavior: url(../_framework/js/iepngfix/iepngfix.htc);
 }
 .home {
     border: none;
     margin: 8px 0px;
 }
-.breadcrumb a:hover {
+.custom-breadcrumb a:hover {
     color:#35acc5;
 }

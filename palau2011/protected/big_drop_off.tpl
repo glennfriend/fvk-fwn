@@ -1,5 +1,4 @@
-<div class="show_code">
-<pre>
+<pre class="show_code">
 
     大斷層
 
@@ -10,8 +9,6 @@
     浮潛方式可採用放流, 趴著不動洋流便會緩緩地把我們帶著走, 很有趣而且輕鬆
 
 </pre>
-</div>
-
 <p>
     12/14 下午
     {{height, day4/DSC04281.JPG}}
@@ -62,8 +59,5 @@
     {{height, day5/DSC01305.JPG}}
 </p>
 <p>
-<iframe width="560" height="315" src="http://www.youtube.com/embed/9pRdyZWkSys" frameborder="0" allowfullscreen></iframe>
-</p>
-<p>
-    補充資料：
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/9pRdyZWkSys" frameborder="0" allowfullscreen></iframe>
 </p>

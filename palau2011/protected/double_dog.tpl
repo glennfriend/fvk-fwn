@@ -1,5 +1,4 @@
-<div class="show_code">
-<pre>
+<pre class="show_code">
 
     雙狗島 (又名 長灘島、長沙灘)
 
@@ -20,8 +19,6 @@
     這裡是許多寫真集的拍攝地點
 
 </pre>
-</div>
-
 <p>
     {{height, day3/IMG_1562_1.jpg}}<br />
     {{height, day3/IMG_1562_2.jpg}}<br />
@@ -29,7 +26,4 @@
     {{height, day3/IMG_1575.JPG, 200}}
     {{height, day3/IMG_1576.JPG, 200}}
     {{height, day3/DSC04106.JPG, 200}}
-</p>
-<p>
-    補充資料：
 </p>

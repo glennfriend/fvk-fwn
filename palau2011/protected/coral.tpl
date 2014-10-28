@@ -1,11 +1,8 @@
-<div class="show_code">
-<pre>
+<pre class="show_code">
 
     阿勇帶我們來餵魚的地方, 不確定位置的珊瑚區
 
 </pre>
-</div>
-
 <p>
     早上九點多，我們來到了很多珊瑚跟魚的地方，用土司來餵魚，
     {{height, day3/DSC04007.JPG}}
@@ -51,7 +48,7 @@
     {{height, day3/DSC01128.JPG}}
     {{height, day3/DSC01130.JPG}}
     {{height, day3/DSC01131.JPG}}<br />
-<pre>
+<pre class="show_code">
     小丑魚是對雀鯛科海葵魚亞科魚類的俗稱，也是一種熱帶鹹水魚
 
     目前全世界已知共有28種，但光是在帛琉就有將近15種以上之多，
@@ -92,7 +89,7 @@
 </p>
 <p>
     {{height, day3/DSC01133.JPG}}<br />
-<pre>
+<pre class="show_code">
     ↑蘇美魚 (蘇眉魚 拿破崙魚 龍王鯛) 是帛琉的國寶魚
 
     Humphead wrasse; Napoleonfish Cheilinus undulatus 屬隆頭魚科, 學名曲紋唇魚
