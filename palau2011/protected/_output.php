@@ -6,11 +6,11 @@
 
     <script type="text/javascript" src="../dist/jquery/jquery-1.11.1.js"></script>
 
-    <!-- images slide information -->
-    <link rel="stylesheet" type="text/css" href="../dist/styles/image_captions/style.css">
-
     <!-- bootstrap theme -->
     <link rel="stylesheet" type="text/css" href="../dist/bootstrap-3.2.0-dist/css/bootstrap.min.css">
+
+    <!-- images slide information -->
+    <link rel="stylesheet" type="text/css" href="../dist/styles/image_captions/style.css">
 
     <!-- theme -->
     <link rel="stylesheet" type="text/css" href="../dist/styles/default/style.css">
@@ -22,43 +22,9 @@
     <!-- images shadowbox -->
     <link rel="stylesheet" type="text/css" href="../dist/shadowbox/shadowbox.css">
     <script type="text/javascript" src='../dist/shadowbox/shadowbox.js'></script>
-    <script type="text/javascript">
-    </script>
-
-    <script type="text/javascript">
-        "use strict";
-
-        $(function() {
-            Shadowbox.init({
-                language: 'zh-TW',
-                players:  ['img']
-            });
-        });
-
-        $(function() {
-            $('.description_content_right').each(function() {
-                $(this).qtip({
-                    content: $(this).next('.exif'),
-                    position: {
-                        at: 'right bottom',
-                        my: 'left bottom',
-                        adjust: {
-                            method: 'shift none'
-                        }
-                    },
-                    style: {
-                        classes: 'qtip-light'
-                    }
-
-                });
-            });
-        });
-
-    </script>
 
 </head>
-<body bgcolor="#FFFFFF" leftmargin="5" topmargin="5" marginwidth="0" marginheight="0" >
-<div id='overDiv' style='position:absolute; visibility:hidden; FILTER: Alpha(opacity=90); z-index:10'></div>
+<body>
 <div>
 
     <?php if (function_exists('TemplateBreadcrumb')) { echo TemplateBreadcrumb(); } ?>
@@ -99,31 +65,63 @@
 
 
 <script type="text/javascript">
+"use strict";
+
+    $(function() {
+        Shadowbox.init({
+            language: 'zh-TW',
+            players:  ['img']
+        });
+    });
+
+    $(function() {
+        $('.description_content_right').each(function() {
+            $(this).qtip({
+                content: $(this).next('.exif'),
+                position: {
+                    at: 'right bottom',
+                    my: 'left bottom',
+                    adjust: {
+                        method: 'shift none'
+                    }
+                },
+                style: {
+                    classes: 'qtip-light'
+                }
+
+            });
+        });
+    });
 
     $(window).load(function(){
 
         $('div.description').each(function(){
-            $(this).css('opacity', 0 );
-            $(this).css('width', $(this).siblings('img').width()+1 );           // 這裡+1 是因為每張圖片都加了 1px 的 border 
-            $(this).parent().css('width', $(this).siblings('img').width()+1 );  //...get the parent (the wrapper) and set it's width same as the image width... '
-            $(this).css('display', 'block' );
+            var width = $(this).siblings('img').width() + 1 ;
+            $(this)
+                .css('opacity', 0 )
+                .css('width', width )           // 這裡+1 是因為每張圖片都加了 1px 的 border 
+                .parent()
+                .css('width', width )           //...get the parent (the wrapper) and set it's width same as the image width... '
+                .css('display', 'block' );
         });
-        
+
+        // mouse hover & out about images
         $('div.wrapper').hover(function(){
-            //when mouse hover over the wrapper div
-            //get it's children elements with class descriptio
-            //and show it using fadeTo
+            // when mouse hover over the wrapper div
+            // get it's children elements with class descriptio
+            // and show it using fadeTo
             $(this).children('.description').stop().fadeTo(500, 0.7);
         },function(){
-            //when mouse out of the wrapper div
-            //use fadeTo to hide the div
+            // when mouse out of the wrapper div
+            // use fadeTo to hide the div
             $(this).children('.description').stop().fadeTo(500, 0);
         });
 
+
     });
 
-</script>
 
+</script>
 
 </body>
 </html>
