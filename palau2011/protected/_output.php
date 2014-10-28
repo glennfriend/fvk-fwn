@@ -1,0 +1,94 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<head>
+<title><?php echo Config::get('title'); ?></title>
+
+    <!-- theme -->
+    <link rel="stylesheet" type="text/css" href="../dist/styles/default/style.css">
+    <script type="text/javascript" src='../dist/overlib421/me.js'></script>
+
+    <!-- images slide information -->
+    <script type="text/javascript" src="../dist/jquery/jquery-1.11.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist/styles/image_captions/style.css">
+
+    <!-- images shadowbox -->
+    <link rel="stylesheet" type="text/css" href="../dist/shadowbox/shadowbox.css">
+    <script type="text/javascript" src='../dist/shadowbox/shadowbox.js'></script>
+    <script type="text/javascript">
+    Shadowbox.init({
+        language: 'zh-TW',
+        players:  ['img']
+    });
+    </script>
+
+</head>
+<body bgcolor="#FFFFFF" leftmargin="5" topmargin="5" marginwidth="0" marginheight="0" >
+<div id='overDiv' style='position:absolute; visibility:hidden; FILTER: Alpha(opacity=90); z-index:10'></div>
+<div>
+
+    <?php if (function_exists('TemplateBreadcrumb')) { echo TemplateBreadcrumb(); } ?>
+
+    <?php
+        $request = new Request();
+        $key = trim($request->getQuery('key'));
+        $content = '';
+        
+        if ( array_key_exists($key, Config::getMenus()) ) {
+            $file = 'protected/'.$key.'.tpl';
+            if( file_exists($file) ) {
+                $content = file_get_contents($file);
+            }
+        }
+
+        if ( $content ) {
+            foreach ( explode("\n",$content) as $line ) {
+                
+                preg_match_all("/\{\{(.*)\}\}/isU", $line, $allFormat);
+                if ( $allFormat && $allFormat[0] && $allFormat[1] ) {
+                    // print_r($allFormat);
+                    foreach( $allFormat[1] as $index => $format ) {
+                        $result = Match::render($format);
+                        $content = str_replace( $allFormat[0][$index], $result, $content);
+                    }
+                }
+                
+            }
+            
+            echo $content;
+        }
+    ?>
+
+    <?php if (function_exists('TemplateBreadcrumb')) { echo TemplateBreadcrumb(); } ?>
+
+</div>
+
+
+<script type="text/javascript">
+
+    $(window).load(function(){
+
+        $('div.description').each(function(){
+            $(this).css('opacity', 0 );
+            $(this).css('width', $(this).siblings('img').width()+1 );           // 這裡+1 是因為每張圖片都加了 1px 的 border 
+            $(this).parent().css('width', $(this).siblings('img').width()+1 );  //...get the parent (the wrapper) and set it's width same as the image width... '
+            $(this).css('display', 'block' );
+        });
+        
+        $('div.wrapper').hover(function(){
+            //when mouse hover over the wrapper div
+            //get it's children elements with class descriptio
+            //and show it using fadeTo
+            $(this).children('.description').stop().fadeTo(500, 0.7);
+        },function(){
+            //when mouse out of the wrapper div
+            //use fadeTo to hide the div
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<?php
+//--------------------------------------------------------------------------------
+// default setting
+//--------------------------------------------------------------------------------
+    define('APP_DIR', __DIR__ );
+    define('APP_URI', dirname($_SERVER['SCRIPT_NAME']) );
+    include_once('config.inc.php');
+    set_time_limit(600);  // 10 min * 60 sec= 600 sec
+
+//--------------------------------------------------------------------------------
+// init
+//--------------------------------------------------------------------------------
+    include_once('../protected/request.class.php');
+    include_once('../protected/ImageHelper.class.php');
+    include_once('../protected/tool.function.php');
+    include_once('../protected/magick.class.php');
+    include_once('../protected/PathRender.class.php');
+
+    $imageHelper = new ImageHelper();
+    $imagePath = new PathRender( APP_DIR, APP_URI, Config::get('imageFolder') );
+
+    include_once('Match.class.php');
+    Match::setImageHelper($imageHelper);
+    Match::setPathRender($imagePath);
+
+//--------------------------------------------------------------------------------
+// output
+//--------------------------------------------------------------------------------
+    include_once 'protected/_output.php';
+    exit;
+
+//--------------------------------------------------------------------------------
+// template
+//--------------------------------------------------------------------------------
+    function TemplateBreadcrumb()
+    {
+        $request = new Request();
+        $key = $request->getQuery('key');
+
+        $output = '';
+        foreach( Config::getMenus() as $keyword => $items ) {
+            if( $key == $keyword ) {
+                $tag = ' class="focus" ';
+            }
+            else {
+                $tag = '';
+            }
+
+            $output .= '<li><a href="'. getUrl($keyword) .'" '. $tag .' >'. $items['topic'] .'</a></li>';
+        }
+
+        return '<ul class="breadcrumb">'.$output.'</ul><br />';
+    }
+
+
+    function templateOrigin( $fromUri, $exif )
+    {
+        $exifView = '';
+        if ( $exif ) {
+            $exifView = "<a href='javascript:void(0)' onmouseover=\"overlib('{$exif}',WIDTH,420);\" onmouseout='return nd();'>EXIF</a>";
+            $exifView = str_replace("\n", '', $exifView);
+            $exifView = str_replace("\r", '', $exifView);
+        }
+
+        $content = '';
+        if( $exifView ) {
+            $content = <<<EOD
+                <div class="description_content">
+                    <span class="description_content_left">
+                        &nbsp;
+                    </span>
+                    <span class="description_content_right">
+                        {$exifView}
+                    </span>
+                </div>
+EOD;
+        }
+
+        //display
+        return <<<EOD
+            <div class="wrapper" style="margin:3px; float:left">
+                <img src="{$fromUri}" />
+                <div class="description">
+                    {$content}
+                </div>
+            </div>
+EOD;
+    }
+
+    function templateHeight( $from, $to, $fromUri, $toUri, $height, $exif )
+    {
+        $exifView = '';
+        if ( $exif ) {
+            $exifView = "<a href='javascript:void(0)' onmouseover=\"overlib('{$exif}',WIDTH,420);\" onmouseout='return nd();'>EXIF</a>";
+            $exifView = str_replace("\n", '', $exifView);
+            $exifView = str_replace("\r", '', $exifView);
+        }
+
+        //如果原圖、縮圖都存在, 表示會先顯示縮圖, 因此, 在點擊之後, 顯示大圖
+        $showOriginImage = '';
+        if( $from && $to ) {
+            $showOriginImage = '<a rel="shadowbox;options={handleOversize:\'drag\'}" href="'. $fromUri .'">Zoom</a>';
+        }
+
+        $content = '';
+        if( $showOriginImage || $exifView ) {
+            $content = <<<EOD
+                <div class="description_content">
+                    <span class="description_content_left">
+                        {$showOriginImage}
+                    </span>
+                    <span class="description_content_right">
+                        {$exifView}
+                    </span>
+                </div>
+EOD;
+        }
+
+        //display
+        return <<<EOD
+            <div class="wrapper" style="margin:3px; float:left">
+                <img src="{$toUri}" height="{$height}" />
+                <div class="description">
+                    {$content}
+                </div>
+            </div>
+EOD;
+    }
+
+    function templateIcon( $toUri )
+    {
+        return <<<EOD
+            <div style="float:left; margin:3px; ">
+                <div style="float:left; background-color:#000; ">
+                    <img src="{$toUri}" style="float:left;">
+                </div>
+            </div>
+EOD;
+    }
+
+    function templateExif( $image )
+    {
+        if( !function_exists('exif_read_data') ) {
+            return '';
+        }
+
+        ob_start();
+            $exif = exif_read_data($image);
+        ob_end_clean();
+
+        if (isset($exif['Make'])) {
+
+            //echo '<pre>';  print_r($exif); echo '</pre>'; //debug
+
+            $iso        = array_get( $exif, 'ISOSpeedRatings'           );
+            $fnumber    = array_get( $exif, 'COMPUTED.ApertureFNumber'  );
+            $exposure   = array_get( $exif, 'ExposureTime'              );
+            $make       = array_get( $exif, 'Make'                      );
+            $model      = array_get( $exif, 'Model'                     );
+            $datetime   = array_get( $exif, 'DateTime'                  );
+
+            return <<<EOD
+    <table border=0 cellpadding=0 cellspacing=0 >
+        <tr><td>ISO      : </td><td>{$iso}      </td></tr>
+        <tr><td>fnumber  : </td><td>{$fnumber}  </td></tr>
+        <tr><td>exposure : </td><td>{$exposure} </td></tr>
+        <tr><td>make     : </td><td>{$make}     </td></tr>
+        <tr><td>model    : </td><td>{$model}    </td></tr>
+        <tr><td>DateTime : </td><td>{$datetime} </td></tr>
+    </table>
+EOD;
+        }
+
+    }
+
+//
