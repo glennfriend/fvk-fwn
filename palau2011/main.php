@@ -35,22 +35,18 @@
 
     function templateOrigin( $fromUri, $exif )
     {
-        $exifView = '';
-        if ( $exif ) {
-            $exifView = "<a href='javascript:void(0)' onmouseover=\"overlib('{$exif}',WIDTH,420);\" onmouseout='return nd();'>EXIF</a>";
-            $exifView = str_replace("\n", '', $exifView);
-            $exifView = str_replace("\r", '', $exifView);
-        }
-
         $content = '';
-        if( $exifView ) {
+        if( $exif ) {
             $content = <<<EOD
                 <div class="description_content">
                     <span class="description_content_left">
                         &nbsp;
                     </span>
                     <span class="description_content_right">
-                        {$exifView}
+                        <a href="javascript:'">EXIF</a>
+                    </span>
+                    <span style="display:none;" class="exif">
+                        {$exif}
                     </span>
                 </div>
 EOD;

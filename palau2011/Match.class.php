@@ -28,6 +28,7 @@
             }
 
             // custom parse
+            $result = null;
             switch ( $params[0] ) {
                 case 'url':     $result = self::parseUrl($params);      break;
                 case 'origin':  $result = self::parseOrigin($params);   break;
