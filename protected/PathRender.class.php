@@ -8,13 +8,11 @@
 class PathRender
 {
     protected $appDir;
-    protected $webUri;
     protected $groupKey;
 
-    public function __construct( $appDir, $webUri, $groupKey )
+    public function __construct( $appDir, $groupKey )
     {
         $this->appDir = $appDir;
-        $this->webUri = $webUri;
         $this->groupKey = $groupKey;
     }
 
@@ -38,7 +36,7 @@ class PathRender
 
     public function toPath( $name=null )
     {
-        $path ="../media/tmp/{$this->groupKey}";
+        $path = "../media/tmp/{$this->groupKey}";
         if ( $name ) {
             return $path.'/'.$name;
         }
@@ -47,7 +45,7 @@ class PathRender
 
     public function toUri( $name=null )
     {
-        $path ="../media/tmp/{$this->groupKey}";
+        $path = "../media/tmp/{$this->groupKey}";
         if ( $name ) {
             return $path.'/'.$name;
         }

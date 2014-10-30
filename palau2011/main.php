@@ -3,7 +3,6 @@
 // default setting
 //--------------------------------------------------------------------------------
     define('APP_DIR', __DIR__ );
-    define('APP_URI', dirname($_SERVER['SCRIPT_NAME']) );
     include_once('config.inc.php');
     set_time_limit(600);  // 10 min * 60 sec= 600 sec
 
@@ -17,7 +16,7 @@
     include_once('../protected/PathRender.class.php');
 
     $imageHelper = new ImageHelper();
-    $imagePath = new PathRender( APP_DIR, APP_URI, Config::get('imageFolder') );
+    $imagePath = new PathRender( APP_DIR, Config::get('imageFolder') );
 
     include_once('Match.class.php');
     Match::setImageHelper($imageHelper);
