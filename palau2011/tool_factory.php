@@ -17,9 +17,14 @@ if ( !isset($_SERVER['DEVELOPER_MODE']) ) {
     include_once('../protected/request.class.php');
     include_once('../protected/tool.function.php');
 
+    $request = new Request();
+
 //--------------------------------------------------------------------------------
 // render
 //--------------------------------------------------------------------------------
+
+    echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
+    echo '<meta http-equiv="Content-Language" content="zh-tw" />';
 
     $createList = Array();
     foreach( Config::getMenus() as $key => $items ) {
@@ -44,12 +49,13 @@ if ( !isset($_SERVER['DEVELOPER_MODE']) ) {
     echo '</tbody></table>';
     echo '<br />';
     echo '<a href="'. $_SERVER['SCRIPT_NAME'] .'?&isCreate=1">產生 html 靜態檔案</a>';
+    echo '<br />';
+    echo '產生檔案前請注意:: 主機對應到的 domain 必須存在, 如果是虛擬的, 請在主機的 host 檔案加上該 domain and 127.0.0.1';
 
-    if( !Request::getQuery('isCreate') ) {
+    if( !$request->getQuery('isCreate') ) {
         exit;
     }
     echo '<br /><br />';
-
 
     // 產生靜態 html 檔案
     foreach( $createList as $key => $items ) {

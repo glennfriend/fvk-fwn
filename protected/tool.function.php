@@ -6,7 +6,8 @@
 */
 function get_files_by_directory( $dir='./*', $allowTypes=Array(), $hasPath=false )
 {
-    
+    setlocale(LC_ALL, 'en_US.UTF-8');
+
     if(!$allowTypes) {
         $allowTypes = Array('jpg','jpeg','png','gif');
     }
@@ -81,6 +82,5 @@ function getUrl( $key )
     // 網址開頭請保留 "http:" 而成為 "http://"
     return 'http://' . $_SERVER['SERVER_NAME'] . dirname($_SERVER['SCRIPT_NAME']) .'/'. $baseUrl.'?key='. trim($key);
 }
-
 
 //

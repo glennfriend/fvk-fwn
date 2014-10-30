@@ -11,34 +11,6 @@ class PathRender
     protected $webUri;
     protected $groupKey;
 
-    /**
-     *  整理路徑, 不要出現 .. or . 符號
-     */
-    private function flatPath( $path )
-    {
-        $index = 0;
-        $result = array();
-        foreach ( explode('/',$path) as $tag ) {
-            $tag = trim($tag);
-            switch($tag)
-            {
-                case '.':
-                    break;
-                case '..':
-                    if ( $index>0 ) {
-                        unset($result[$index]);
-                        $index--;
-                    }
-                    break;
-                default:
-                    $result[$index] = $tag;
-                    $index++;
-                    break;
-            }
-        }
-        return join('/',$result);
-    }
-
     public function __construct( $appDir, $webUri, $groupKey )
     {
         $this->appDir = $appDir;
@@ -57,7 +29,7 @@ class PathRender
 
     public function fromUri( $name=null )
     {
-        $path = $this->flatPath("{$this->webUri}/../media/{$this->groupKey}");
+        $path = "../media/{$this->groupKey}";
         if ( $name ) {
             return $path.'/'.$name;
         }
@@ -66,7 +38,7 @@ class PathRender
 
     public function toPath( $name=null )
     {
-        $path = $this->flatPath("{$this->appDir}/../media/tmp/{$this->groupKey}");
+        $path ="../media/tmp/{$this->groupKey}";
         if ( $name ) {
             return $path.'/'.$name;
         }
@@ -75,7 +47,7 @@ class PathRender
 
     public function toUri( $name=null )
     {
-        $path = $this->flatPath("{$this->webUri}/../media/tmp/{$this->groupKey}");
+        $path ="../media/tmp/{$this->groupKey}";
         if ( $name ) {
             return $path.'/'.$name;
         }

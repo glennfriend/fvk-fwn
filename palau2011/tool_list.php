@@ -20,6 +20,9 @@ if ( !isset($_SERVER['DEVELOPER_MODE']) ) {
 // output
 //--------------------------------------------------------------------------------
 
+    echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
+    echo '<meta http-equiv="Content-Language" content="zh-tw" />';
+
     $condition = APP_DIR .'/'. Config::get('imagePath') .'/*';
     $folders = glob( $condition, GLOB_ONLYDIR );
 

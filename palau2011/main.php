@@ -103,8 +103,8 @@ EOD;
     function templateIcon( $toUri )
     {
         return <<<EOD
-            <div style="float:left; margin:3px; ">
-                <div style="float:left; background-color:#000; ">
+            <div style="float:left; margin:3px;">
+                <div style="float:left; background-color:#000;">
                     <img src="{$toUri}" style="float:left;">
                 </div>
             </div>
