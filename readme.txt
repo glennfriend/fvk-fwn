@@ -12,6 +12,7 @@ install
 
 developer note
     - use bootstrap
-    - parser 使用 php, 而非 javascript render template
-    - 要可以輸出為 pure html, 建議能一次產生所有的檔案, 不要點一頁, 產生一頁
-
+    - parse use php, not javascript render template
+    - output pure html (一次產生所有的 html 檔案, 不要點一頁, 產生一頁)
+    - template 獨立於各 project
+    - 最後要將 縮圖 & html 都輸出, 並 push to git
