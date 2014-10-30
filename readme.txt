@@ -2,12 +2,14 @@
 install
     http://tecadmin.net/install-imagemagick-on-linux/
 
-install
+install on ubuntu
     apt-get install imagemagick php5-imagick
 
-install
+install on centos
     yum install ImageMagick ImageMagick-devel
     yum install php-pecl-imagick
+
+install
     service httpd restart
 
 developer note
